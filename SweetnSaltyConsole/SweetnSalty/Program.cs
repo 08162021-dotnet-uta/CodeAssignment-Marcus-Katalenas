@@ -7,33 +7,45 @@ namespace SweentSalty
         static void Main(string[] args)
         {
 
-
+            //Counters used to hold the number of special cases in the program
             int sweetCounter = 0;
             int saltCounter = 0;
             int bothCounter = 0;
+
+            string currentLine = "";
 
             for (int i = 1; i <= 1000; i++)
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
-                    Console.WriteLine("sweet’nSalty");
+                    currentLine += "sweet’nSalty ";
+                    //Console.WriteLine("sweet’nSalty");
                     bothCounter++;
                 }
                 else if (i % 3 == 0)
                 {
-                    Console.WriteLine("Sweet");
+                    currentLine += "sweet ";
+                    //Console.WriteLine("Sweet");
                     sweetCounter++;
                 }
                 else if (i % 5 == 0)
                 {
-                    Console.WriteLine("Salty");
+                    currentLine += "salty ";
+                   // Console.WriteLine("Salty");
                     saltCounter++;
                 }
                 else
                 {
-                    Console.WriteLine(i);
+                    currentLine += i + " ";
+                    //Console.WriteLine(i);
+                }
+                if(i % 10 == 0)
+                {
+                    Console.WriteLine(currentLine);
+                    currentLine = "";
                 }
             }
+
             Console.WriteLine();
             Console.WriteLine("Amount of sweets: " + sweetCounter);
             Console.WriteLine("Amount of Salts: " + saltCounter);
